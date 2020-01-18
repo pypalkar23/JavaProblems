@@ -1,3 +1,4 @@
+package misc;
 class ThreadDemo implements Runnable  {
 
     @Override

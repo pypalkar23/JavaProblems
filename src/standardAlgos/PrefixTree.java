@@ -1,3 +1,4 @@
+package standardalgos;
 class PrefixTree{
     public static void main(String[] args) {
         Trie prefixTree=new Trie();

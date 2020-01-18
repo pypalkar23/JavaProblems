@@ -1,3 +1,4 @@
+package leetcode;
 /*190. Reverse Bits*/
 class ReverseBits{
     public static void main(String[] args) {

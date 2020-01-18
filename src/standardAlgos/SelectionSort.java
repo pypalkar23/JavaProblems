@@ -1,3 +1,4 @@
+package standardalgos;
 class SelectionSort {
     public static void main(String[] args) {
         int seq[] = { 1,9,5,3,4 };

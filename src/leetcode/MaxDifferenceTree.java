@@ -1,3 +1,4 @@
+package leetcode;
 /**1026. Maximum Difference Between Node and Ancestor*/
 
 class MaxDifference{

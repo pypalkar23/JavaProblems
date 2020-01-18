@@ -1,3 +1,4 @@
+package standardalgos;
 class HeapSort{
     public static void main(String[] args) {
         int seq[] = { 8, 10, 3, 2, 0 };

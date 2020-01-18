@@ -1,3 +1,4 @@
+package leetcode;
 class searchRangeCl {
     public int[] searchRange(int[] nums, int target) {
        if(nums==null)

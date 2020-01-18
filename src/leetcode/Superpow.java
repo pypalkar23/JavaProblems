@@ -1,3 +1,4 @@
+package leetcode;
 class Superpow {
     public int superpow(int a, int[] b) {
         return 0;

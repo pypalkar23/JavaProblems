@@ -1,4 +1,4 @@
-
+package standardalgos;
 class RabinKarp {
     static int d = 256;
 

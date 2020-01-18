@@ -1,3 +1,4 @@
+package leetcode;
 class MaxBipMatching {
     public int M = 6;
     public int N = 6;

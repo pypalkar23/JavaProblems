@@ -1,3 +1,4 @@
+package leetcode;
 class Power {
     public static double myPow(double x, int n) {
         double ans = 1;

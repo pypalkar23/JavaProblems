@@ -1,3 +1,4 @@
+package standardalgos;
 class KMP {
     public static void main(String[] args) {
         KMPFind("ABAAAAAA", "ABABC");

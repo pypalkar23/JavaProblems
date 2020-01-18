@@ -1,4 +1,4 @@
-
+package standardalgos;
 /*890. Find and Replace Pattern*/
 import java.util.List;
 import java.util.Map;

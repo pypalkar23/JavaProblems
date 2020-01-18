@@ -1,3 +1,4 @@
+package standardalgos;
 class Gcd{
     public static void main(String[] args) {
         System.out.println(gcd(6,4)); 

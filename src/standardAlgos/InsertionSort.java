@@ -1,4 +1,4 @@
-
+package standardalgos;
 class InsertionSort {
     public static void main(String[] args) {
         int seq[] = { 8, 9, 3, -1, 0 };

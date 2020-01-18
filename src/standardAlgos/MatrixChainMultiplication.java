@@ -1,3 +1,4 @@
+package standardalgos;
 import java.util.Scanner;
 class MatrixChainMultiplication
 {

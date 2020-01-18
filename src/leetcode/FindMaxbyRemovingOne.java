@@ -1,3 +1,4 @@
+package leetcode;
 class FindMaxByRemovingOne{
     public static void main(String[] args) {
         System.out.println(FindMaxByRemovingOne("1450"));

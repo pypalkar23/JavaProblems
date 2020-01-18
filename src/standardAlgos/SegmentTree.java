@@ -1,3 +1,5 @@
+
+package standardalgos;
 class SegmentTree {
     int seq[];
     int tree[];

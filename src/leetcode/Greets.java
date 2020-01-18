@@ -1,3 +1,4 @@
+package leetcode;
 class Greets{
     public static void main(String args[]){
         System.out.println(calculateGreets(""));

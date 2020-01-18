@@ -1,3 +1,4 @@
+package standardalgos;
 // A class to represent a connected, directed and weighted graph
 class Graph
 {

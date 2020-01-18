@@ -1,3 +1,4 @@
+package standardalgos;
 class Permute {
     public static void main(String[] args) {
         Permute p=new Permute();

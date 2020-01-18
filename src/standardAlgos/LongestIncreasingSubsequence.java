@@ -1,3 +1,4 @@
+package standardalgos;
 class LongestIncreasingSubsequence{
     public static void main(String[] args) {
         
@@ -11,7 +12,7 @@ class LongestIncreasingSubsequence{
         int i=1;
         int states[]= new int[n];
         while(i<n){
-            while(j<n)
+            while(j<n){}
         }
         return 0;
     }

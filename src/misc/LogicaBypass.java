@@ -1,3 +1,4 @@
+package misc;
 class LogicaBypass {
     public static void main(String args[]) {
         System.out.println(calculateChecksum(16005, 31808));

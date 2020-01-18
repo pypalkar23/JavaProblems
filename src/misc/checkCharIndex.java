@@ -1,5 +1,4 @@
-
-
+package misc;
 class IntWrapper {
    int a;
 }

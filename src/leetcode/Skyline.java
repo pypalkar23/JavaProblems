@@ -1,3 +1,4 @@
+package leetcode;
 class Skyline {
     /** https://leetcode.com/problems/max-increase-to-keep-city-skyline/ */
 

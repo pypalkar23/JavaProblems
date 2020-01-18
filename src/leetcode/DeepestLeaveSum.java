@@ -1,3 +1,5 @@
+ 
+ package leetcode;
  /*1302. Deepest Leaves Sum*/
  class DeepestLeaveSum{
     int sum = 0;

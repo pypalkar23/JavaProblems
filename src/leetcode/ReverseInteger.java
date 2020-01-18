@@ -1,3 +1,4 @@
+package leetcode;
 class ReverseInteger{
     public static void main(String[] args) {
         ReverseInteger r = new ReverseInteger();

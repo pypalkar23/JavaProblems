@@ -1,4 +1,4 @@
-
+package misc;
 class TreeLinkNode{
     int val;
     TreeLinkNode left,right,next;

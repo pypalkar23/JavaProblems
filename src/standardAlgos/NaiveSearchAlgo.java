@@ -1,3 +1,4 @@
+package standardalgos;
 class NaiveSearchAlgo{
     public static void main(String[] args) {
         patternSearch("df jns", " ");

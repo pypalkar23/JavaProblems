@@ -1,3 +1,4 @@
+package standardalgos;
 class GFG  
 { 
 static int phi(int n) 

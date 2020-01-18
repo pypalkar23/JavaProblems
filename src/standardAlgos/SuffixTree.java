@@ -1,4 +1,4 @@
-package justanotherpackage;
+package standardalgos;
 class IntWrapper {
     int wrappedInt;
 }

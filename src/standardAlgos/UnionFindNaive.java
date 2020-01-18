@@ -1,4 +1,4 @@
-
+package standardalgos;
 class Edge{
     int src;
     int dest;

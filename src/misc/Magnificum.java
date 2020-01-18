@@ -1,3 +1,4 @@
+package misc;
 class Magnificum {
     public static void main(String args[]) {
         System.out.println(calculateWays(7));
@@ -17,7 +18,7 @@ class Magnificum {
         for(int i=5;i<=blocks;i++){
             
         }
-        
+        return 0;
     }
 
 

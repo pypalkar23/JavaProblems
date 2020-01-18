@@ -1,4 +1,4 @@
-
+package leetcode;
 /*636. Exclusive Time of Functions*/
 import java.util.List;
 import java.util.ArrayList;

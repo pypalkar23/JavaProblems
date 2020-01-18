@@ -1,5 +1,4 @@
-
-
+package leetcode;
 class DivideTwoIntegers{
     
     public int divide(int dividend, int divisor) {

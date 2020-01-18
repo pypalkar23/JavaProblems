@@ -1,3 +1,4 @@
+package leetcode;
 /*654. Maximum Binary Tree*/
 class TreeNode {
     int val;

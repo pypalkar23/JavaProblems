@@ -1,3 +1,4 @@
+package standardalgos;
 class Knapsack {
 
     // A utility function that returns maximum of two integers

@@ -1,4 +1,4 @@
-
+package leetcode;
 /** 894. All Possible Full Binary Trees */
 import java.util.List;
 import java.util.ArrayList;

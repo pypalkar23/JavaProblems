@@ -1,4 +1,4 @@
-package com;
+package standardalgos;
 class BinarySearch
 {
     public static void main(String[] args) {

@@ -1,5 +1,5 @@
+package leetcode;
 import java.util.Arrays;
-
 
 class CountChange{
     public int countChange(int money,int a[])
