@@ -1,5 +1,3 @@
-import javax.print.attribute.standard.RequestingUserName;
-
 class PascalTriangle {
     public int calcDigitAtPos(int col, int row) {
         if (col == 0 || (col == row))
