@@ -1,5 +1,5 @@
 package leetcode;
-
+/*328. Odd Even Linked List.*/
 public class OddEvenLinkedList {
 
     public class ListNode {
@@ -26,24 +26,15 @@ public class OddEvenLinkedList {
     public ListNode oddEvenList(ListNode head) {
         if (head == null)
             return head;
-        if (head.next == null)
-            return head;
-        if (head.next.next == null)
-            return head;
-
-        ListNode currPointer = head;
-        ListNode evenHead = new ListNode();
-        ListNode currEvenHead = evenHead;
-
-        while(currPointer.next!=null){
-            currEvenHead.next= currPointer.next;
-            currEvenHead = currEvenHead.next;
-            currPointer.next = currPointer.next.next;
-            if(currPointer.next == null)
-                break;
+        
+        ListNode odd=head, even= head.next,evenHead = even;
+        while(even != null && even.next!=null){
+            odd.next = odd.next.next;
+            odd = odd.next;
+            even.next = even.next.next;
+            even = even.next;
         }
-
-        currPointer.next = evenHead.next;
+        odd.next = evenHead;
         return head;
     }
 }
