@@ -1,5 +1,6 @@
 package leetcode;
 class PascalTriangle {
+    //recursive solution
     public int calcDigitAtPos(int col, int row) {
         if (col == 0 || (col == row))
             return 1;

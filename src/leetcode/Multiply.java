@@ -3,7 +3,7 @@ class Multiply {
     public String multiply(String num1, String num2) {
         if (num1 == null || num2 == null)
             return "0";
-        if (num1 == "0" || num2 == "0")
+        if (num1.equals("0") || num2.equals("0"))
             return "0";
         int first[] = new int[num1.length()];
         int second[] = new int[num2.length()];

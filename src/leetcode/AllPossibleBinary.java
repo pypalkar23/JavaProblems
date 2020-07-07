@@ -43,10 +43,10 @@ class AllBinaryTrees {
         if ((N & 1) == 0) {
             return res;
         }
-        N = N - 1;// Because One is Main Node
+        N = N - 1;// Because One Node is Main Node for that level
         for (int i = 1; i < N; i += 2) {
-            List<TreeNode> allLeft = allPossibleFBT(i);
-            List<TreeNode> allRight = allPossibleFBT(N - i);
+            List<TreeNode> allLeft = allPossibleFBT(i); // construct all the variations of left subtree
+            List<TreeNode> allRight = allPossibleFBT(N - i); // construct all the variation of right subtree
             System.out.println("left for " + (N + 1) + " " + allLeft.size());
             System.out.println("right for " + (N + 1) + " " + allRight.size());
             for (TreeNode l : allLeft) {

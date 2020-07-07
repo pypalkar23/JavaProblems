@@ -29,12 +29,12 @@ public class MaxAncestorDiff {
     public void util(TreeNode current, int max, int min) {
         if (current == null)
             return;
-        // calculate maxdiff by comparing the current maxDiff, difference between the
-        // current val and max till that level and difference between the current val
+        /*calculate maxdiff by comparing the current maxDiff, difference between the
+        current val and max till that level and difference between the current val*/
         maxDiff = Math.max(maxDiff, Math.max(Math.abs(current.val - max), Math.abs(current.val - min)));
         // proceed to next level by calculating new max and new min
-        // new max is maximum between current node value and max till that point
-        // new min is minimum between current node value and min till that point
+        // -new max is maximum between current node value and max till that point
+        // -new min is minimum between current node value and min till that point
         util(current.left, Math.max(current.val, max), Math.min(current.val, min));
         util(current.right, Math.max(current.val, max), Math.min(current.val, min));
     }
