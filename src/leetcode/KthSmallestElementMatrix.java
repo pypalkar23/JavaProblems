@@ -4,13 +4,13 @@ package leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
-public class KthSmallestElement {
+public class KthSmallestElementMatrix {
     // sol2
     int count, ans;
 
     public static void main(String[] args) {
         int mat[][] = new int[][] { { 1, 5, 9 }, { 10, 11, 13 }, { 12, 13, 15 } };
-        System.out.println(new KthSmallestElement().kthSmallest(mat, 2));
+        System.out.println(new KthSmallestElementMatrix().kthSmallest(mat, 2));
     }
 
     public int kthSmallest1(int[][] matrix, int k) {
@@ -150,7 +150,8 @@ public class KthSmallestElement {
             count = count(matrix, mid);
             // in the intermediate stages this mid can come out to be a number which is
             // notpresent in the matrix
-            // but eventually becomes one of those matrix numbers due to the adjustments;
+            // but eventually becomes one of those matrix numbers due to the adjustments;and ultimately 
+            // has to be one of those cause that exact element will have k small elements than it.
             if (count < k) {
                 low = mid + 1;
             } else {
