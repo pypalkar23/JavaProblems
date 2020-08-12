@@ -1,5 +1,5 @@
 package leetcode;
-
+/*371. Sum of Two Integers*/
 public class SumofTwoIntegers {
     public static void main(String[] args) {
         SumofTwoIntegers s=new SumofTwoIntegers();
