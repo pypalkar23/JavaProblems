@@ -40,10 +40,12 @@ class AllBinaryTrees {
             return cache.get(N);
         }
 
+        //A Full Binary Tree Isn't possible with even nodes the number of nodes should be odd
         if ((N & 1) == 0) {
             return res;
         }
         N = N - 1;// Because One Node is Main Node for that level
+        //Note incrementing by 2 here
         for (int i = 1; i < N; i += 2) {
             List<TreeNode> allLeft = allPossibleFBT(i); // construct all the variations of left subtree
             List<TreeNode> allRight = allPossibleFBT(N - i); // construct all the variation of right subtree
