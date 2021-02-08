@@ -1,5 +1,7 @@
 package leetcode;
-/** 894. All Possible Full Binary Trees */
+/** 894. All Possible Full Binary Trees 
+ * A full binary tree is a binary tree where each node has exactly 0 or 2 children
+*/
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
@@ -51,6 +53,7 @@ class AllBinaryTrees {
             List<TreeNode> allRight = allPossibleFBT(N - i); // construct all the variation of right subtree
             System.out.println("left for " + (N + 1) + " " + allLeft.size());
             System.out.println("right for " + (N + 1) + " " + allRight.size());
+            //creating a different tree and adding it to the list
             for (TreeNode l : allLeft) {
                 for (TreeNode r : allRight) {
                     TreeNode t = new TreeNode(0);
