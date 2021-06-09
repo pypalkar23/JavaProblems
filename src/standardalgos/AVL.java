@@ -1,4 +1,5 @@
 package standardalgos;
+
 class AVL {
     public static void main(String[] args) throws java.lang.Exception {
         // your code goes here
@@ -47,21 +48,21 @@ class AVLTree {
             root.right = insert(root.right, data);
 
         int balance = getBalance(root);
-        /*left left case*/
+        /* left left case */
         if (balance > 1 && data < root.left.data)
             root = rightRotate(root);
-        
-        /*right right case*/
+
+        /* right right case */
         if (balance < -1 && data > root.right.data)
             root = leftRotate(root);
-        
-        /*left right case*/
+
+        /* left right case */
         if (balance > 1 && data > root.left.data) {
             root.left = leftRotate(root.left);
             root = rightRotate(root);
         }
 
-        /*right left case*/
+        /* right left case */
         if (balance < -1 && data < root.right.data) {
             root.left = rightRotate(root.left);
             root = leftRotate(root);

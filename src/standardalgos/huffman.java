@@ -1,4 +1,5 @@
 package standardalgos;
+
 class Node {
         String data;
         int freq;

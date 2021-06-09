@@ -1,86 +1,88 @@
 package standardalgos;
-class PrefixTree{
+
+class PrefixTree {
     public static void main(String[] args) {
-        Trie prefixTree=new Trie();
+        Trie prefixTree = new Trie();
         prefixTree.insert("mandar");
         prefixTree.insert("python");
         System.out.println(prefixTree.search("mandar"));
         System.out.println(prefixTree.startsWith("ma"));
-        
+
     }
 }
 
-class TrieNode{
+class TrieNode {
 
     private TrieNode[] links;
 
-    private final int R=26;
+    private final int R = 26;
 
     private boolean isEnd;
 
-    public TrieNode(){
+    public TrieNode() {
         links = new TrieNode[R];
     }
 
-    public boolean containsKey(char ch){
-        return links[ch-'a']!=null;
+    public boolean containsKey(char ch) {
+        return links[ch - 'a'] != null;
     }
 
-    public TrieNode get(char ch){
-        return links[ch-'a'];
+    public TrieNode get(char ch) {
+        return links[ch - 'a'];
     }
 
-    public void put(char ch,TrieNode node){
-        links[ch-'a']=node;
+    public void put(char ch, TrieNode node) {
+        links[ch - 'a'] = node;
     }
 
-    public void setEnd(){
-        isEnd=true;
+    public void setEnd() {
+        isEnd = true;
     }
 
-    public boolean isEnd(){
+    public boolean isEnd() {
         return isEnd;
     }
 }
-class Trie{
+
+class Trie {
 
     private TrieNode root;
 
-    public Trie(){
-        root=new TrieNode();
+    public Trie() {
+        root = new TrieNode();
     }
-    public void insert(String word){
-        TrieNode node=root;
-        for(int i=0,n=word.length();i<n;i++){
+
+    public void insert(String word) {
+        TrieNode node = root;
+        for (int i = 0, n = word.length(); i < n; i++) {
             char currentChar = word.charAt(i);
-            if(!node.containsKey(currentChar)){
-                node.put(currentChar,new TrieNode());
+            if (!node.containsKey(currentChar)) {
+                node.put(currentChar, new TrieNode());
             }
-            node=node.get(currentChar);
+            node = node.get(currentChar);
         }
         node.setEnd();
     }
 
-    private TrieNode searchPrefix(String word){
-        TrieNode node=root;
-        for(int i=0;i<word.length();i++){
-            char curLetter=word.charAt(i);
-            if(node.containsKey(curLetter)){
-                node=node.get(curLetter);
-            }
-            else{
+    private TrieNode searchPrefix(String word) {
+        TrieNode node = root;
+        for (int i = 0; i < word.length(); i++) {
+            char curLetter = word.charAt(i);
+            if (node.containsKey(curLetter)) {
+                node = node.get(curLetter);
+            } else {
                 return null;
             }
         }
         return node;
     }
 
-    public boolean search(String word){
-        TrieNode node=searchPrefix(word);
+    public boolean search(String word) {
+        TrieNode node = searchPrefix(word);
         return node != null && node.isEnd();
     }
 
-     public boolean startsWith(String prefix) {
+    public boolean startsWith(String prefix) {
         TrieNode node = searchPrefix(prefix);
         return node != null;
     }

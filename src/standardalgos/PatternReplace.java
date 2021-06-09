@@ -1,4 +1,5 @@
 package standardalgos;
+
 /*890. Find and Replace Pattern*/
 import java.util.List;
 import java.util.Map;
@@ -8,12 +9,12 @@ import java.util.Arrays;
 
 class PatternReplace {
     public static void main(String[] args) {
-        PatternReplace p= new PatternReplace();
-        String words[]={"abc","deq","mee","aqq","dkd","ccc"};   
+        PatternReplace p = new PatternReplace();
+        String words[] = { "abc", "deq", "mee", "aqq", "dkd", "ccc" };
         String pattern = "abb";
         List<String> ans = p.findAndReplacePattern(words, pattern);
-        for(String s:ans)
-            System.out.print(s+",");
+        for (String s : ans)
+            System.out.print(s + ",");
         System.out.println("");
     }
 

@@ -1,4 +1,5 @@
 package standardalgos;
+
 class Bubblesort {
     public static void main(String[] args) {
         int seq[] = { 8, 9, 3, -1, 0 };
@@ -6,12 +7,13 @@ class Bubblesort {
         printArray(seq);
     }
 
-    public static void printArray(int seq[]){
+    public static void printArray(int seq[]) {
         for (int i : seq) {
             System.out.print(i + " ");
         }
         System.out.println("");
-    }    
+    }
+
     public static void bubblesort(int seq[]) {
         int n = seq.length;
         for (int i = 0; i < n; i++) {

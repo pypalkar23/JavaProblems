@@ -1,4 +1,5 @@
 package standardalgos;
+
 class KMP {
     public static void main(String[] args) {
         KMPFind("ABAAAAAA", "ABABC");
@@ -9,9 +10,9 @@ class KMP {
         int textLength = text.length();
         int i = 0;
         int j = 0;
-         // Preprocess the pattern (calculate lps[] array)
+        // Preprocess the pattern (calculate lps[] array)
         int lps[] = lps(pattern);
-        for (int a:lps)
+        for (int a : lps)
             System.out.print(a);
         System.out.println("");
         while (i < textLength) {
@@ -19,7 +20,7 @@ class KMP {
                 i++;
                 j++;
             }
-            
+
             if (j == patternLength) {
                 System.out.println("pattern found at" + (i - j));
                 j = lps[j - 1];
@@ -29,8 +30,7 @@ class KMP {
                 // they will match anyway
                 if (j != 0)
                     j = lps[j - 1];
-                else
-                {
+                else {
                     i++;
                 }
             }
@@ -53,15 +53,15 @@ class KMP {
 
             } else {// (pat[i] != pat[len])
                 // This is tricky. Consider the example.
-                // AAACAAAA and i = 7. The idea is similar 
+                // AAACAAAA and i = 7. The idea is similar
                 // to search step
                 if (len != 0) {
                     len = lps[len - 1];
-                     // Also, note that we do not increment
-                     // i here
+                    // Also, note that we do not increment
+                    // i here
                 } else {// if (len == 0)
                     lps[i] = 0;
-                    i++; 
+                    i++;
                 }
             }
         }

@@ -52,7 +52,8 @@ def parseCowinResp(resp):
     if CENTERS_JSON_KEY in json_resp:
         center_list = json_resp[CENTERS_JSON_KEY]
         for center in center_list:
-            if PINCODE_JSON_KEY in center and str(center[PINCODE_JSON_KEY]).startswith("4006"):
+            if PINCODE_JSON_KEY in center and str(center[PINCODE_JSON_KEY]).startswith("40060"):
+                logger.info(center)
                 if SESSIONS_JSON_KEY in center:
                     for session in center[SESSIONS_JSON_KEY]:
                         if AVAILABLE_CAPACITY_JSON_KEY in session and session[AVAILABLE_CAPACITY_JSON_KEY] > 0: 
@@ -79,8 +80,6 @@ def showNotification(pincodeMap):
         msg +="45+: "+",".join(pincodeMap[45])
     if(len(msg)>0):         
         Popen(['notify-send', 'Appointment/s Available', msg])
-    else:
-        Popen(['notify-send', 'No Appointment Available !!!'])
 
 def main():
     global logger
@@ -90,7 +89,7 @@ def main():
     logger= getLogger("cowinchecker.py")
     basicConfig(level=DEBUG)
     log_format = Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    log_handler = handlers.TimedRotatingFileHandler(COWIN_LOGS_DIRECTORY+"cowin.log",when='D',interval=1,backupCount=5)
+    log_handler = handlers.TimedRotatingFileHandler(COWIN_LOGS_DIRECTORY+"cowin.log",when='midnight',interval=1,backupCount=5)
     log_handler.setFormatter(log_format)
     logger.addHandler(log_handler)
     try:
@@ -100,7 +99,7 @@ def main():
          pincodeMap,centreList = parseCowinResp(resp)
          showNotification(pincodeMap)
          createAndWriteRecordsToFile(centreList)
-         logger.info("Script Finished Running slots available at for 18 & 45 at {},{} places".format(len(pincodeMap[18]),len(pincodeMap[45])))
+         logger.info("Script Finished->Slots available for 18 & 45 at {},{} places".format(len(pincodeMap[18]),len(pincodeMap[45])))
     except Exception:
         logger.exception("Error in Cowin Script")  
         print_exc()

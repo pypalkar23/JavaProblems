@@ -1,7 +1,8 @@
 package standardalgos;
+
 class SelectionSort {
     public static void main(String[] args) {
-        int seq[] = { 1,9,5,3,4 };
+        int seq[] = { 1, 9, 5, 3, 4 };
         selectionSort(seq);
         for (int i : seq) {
             System.out.print(i + " ");
@@ -29,10 +30,10 @@ class SelectionSort {
         }
     }
 
-    public static void printArray(int seq[]){
+    public static void printArray(int seq[]) {
         for (int i : seq) {
             System.out.print(i + " ");
         }
         System.out.println("");
-    }  
+    }
 }

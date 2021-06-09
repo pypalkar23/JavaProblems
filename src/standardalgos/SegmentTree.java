@@ -1,5 +1,6 @@
 
 package standardalgos;
+
 class SegmentTree {
     int seq[];
     int tree[];
@@ -18,10 +19,10 @@ class SegmentTree {
 
     public void build(int node, int start, int end) {
         if (start == end) {// Leaf node will have a single element
-            //System.out.println(node+" "+seq[start]);
+            // System.out.println(node+" "+seq[start]);
             tree[node] = seq[start];
         } else {
-            //System.out.println("Start "+start+" end"+end);
+            // System.out.println("Start "+start+" end"+end);
             int mid = (start + end) / 2;
             // Recurse on the left child
             build(2 * node + 1, start, mid);
@@ -65,12 +66,11 @@ class SegmentTree {
             return 0;
         }
 
-        
         if (l <= start && end <= r) {
-            
+
             return tree[node];
         }
-        
+
         int mid = (start + end) / 2;
         int p1 = query(2 * node + 1, start, mid, l, r);
         int p2 = query(2 * node + 2, mid + 1, end, l, r);

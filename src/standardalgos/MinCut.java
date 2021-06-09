@@ -1,4 +1,5 @@
 package standardalgos;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -88,8 +89,8 @@ class MinCut {
 
         boolean visited[] = new boolean[V];
         dfs(rGraph, s, visited);
-        //for(boolean b:visited)
-        //    System.out.print(b+" ");
+        // for(boolean b:visited)
+        // System.out.print(b+" ");
 
         System.out.println(" ");
         for (int i = 0; i < V; i++)

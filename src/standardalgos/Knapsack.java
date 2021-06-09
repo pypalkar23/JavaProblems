@@ -1,4 +1,5 @@
 package standardalgos;
+
 class Knapsack {
 
     // A utility function that returns maximum of two integers
@@ -18,8 +19,8 @@ class Knapsack {
                     K[i][w] = 0;
                 else if (wt[i - 1] <= w) {
                     K[i][w] = max(val[i - 1] + K[i - 1][w - wt[i - 1]], K[i - 1][w]);
-                    //    System.out.print(w-wt[i-1]+" ");
-                    //    System.out.print(wt[i-1]+"<="+w+"\n");
+                    // System.out.print(w-wt[i-1]+" ");
+                    // System.out.print(wt[i-1]+"<="+w+"\n");
                 } else
                     K[i][w] = K[i - 1][w];
             }

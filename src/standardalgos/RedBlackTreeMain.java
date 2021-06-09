@@ -1,4 +1,5 @@
 package standardalgos;
+
 import java.util.LinkedList;
 
 class RedBlackTree {
@@ -56,7 +57,7 @@ class RedBlackTree {
     public void rotateLeft(Node n) {
         Node x = n.right;
         n.right = x.left;
-        if ((n.right)!=null) {
+        if ((n.right) != null) {
             n.right.parent = n;
         }
         x.parent = n.parent;
@@ -75,7 +76,7 @@ class RedBlackTree {
     public void rotateRight(Node n) {
         Node x = n.left;
         n.left = x.right;
-        if ((n.left)!=null) {
+        if ((n.left) != null) {
             n.left.parent = n;
         }
         x.parent = n.parent;
@@ -94,21 +95,22 @@ class RedBlackTree {
     public void fixAfterInsertion(Node n) {
         Node parent = null;
         Node grandParent = null;
-        //Node current=n;
+        // Node current=n;
 
         while ((n != root) && (n.color == false) && (n.parent.color == false)) {
-            //two consecutive reds are not allowed.
-            //System.out.println("n: "+n.data);
+            // two consecutive reds are not allowed.
+            // System.out.println("n: "+n.data);
 
             parent = n.parent;
             grandParent = parent.parent;
-            //System.out.println("parent: "+parent.data);
-            //System.out.println("grandParent: "+grandParent.data);
+            // System.out.println("parent: "+parent.data);
+            // System.out.println("grandParent: "+grandParent.data);
 
             if (parent == grandParent.left) {
                 Node uncle = grandParent.right;
-                /**Uncle is red,reverse the color for parent,uncle and grandparent
-                 * and assign grandparent as new n
+                /**
+                 * Uncle is red,reverse the color for parent,uncle and grandparent and assign
+                 * grandparent as new n
                  */
                 if (!uncle.isNull && uncle.color == false) {
                     grandParent.color = false;
@@ -118,18 +120,18 @@ class RedBlackTree {
                 }
 
                 else {
-                    /** Uncle is black,*/
-                  
+                    /** Uncle is black, */
+
                     if (n == parent.right) {
                         /** Left Right case */
                         rotateLeft(parent);
                         parent = n;
                         System.out.println(parent.data + " " + n.data);
-                        
+
                     }
                     /** Left Right case */
                     rotateRight(grandParent);
-                    //grandParent =parent.right;
+                    // grandParent =parent.right;
                     boolean temp = parent.color;
                     parent.color = grandParent.color;
                     grandParent.color = temp;
@@ -146,7 +148,7 @@ class RedBlackTree {
                     if (n == parent.left) {
                         rotateRight(parent);
                         parent = n;
-                        //n=parent.left;
+                        // n=parent.left;
                     }
                     rotateLeft(grandParent);
                     grandParent = parent.left;
@@ -191,26 +193,26 @@ class RedBlackTree {
         }
         return minVal;
     }
-    //    public void delete(int data)
-    //     {
-    //         root=delete(root,data);
-    //     }
+    // public void delete(int data)
+    // {
+    // root=delete(root,data);
+    // }
 
     public void delete(Node root, int data) {
         Node node = (Node) nodeContaining(root, data);
-        //System.out.println(node.data);
+        // System.out.println(node.data);
 
         if (isNull(node))
             return;
         boolean originalColor = node.color;
-        //System.out.println((originalColor)?"Black":"Red");
+        // System.out.println((originalColor)?"Black":"Red");
         Node parent = node.parent;
         if (isNull(node.left)) {
             boolean childColor = node.right.color;
             node = replace(node, node.right);
             node.parent = parent;
-            //System.out.println(node.color);
-            //System.out.println(node.data);
+            // System.out.println(node.color);
+            // System.out.println(node.data);
             if (originalColor == childColor) {
                 adjustAfterRemoval(node);
             }
@@ -218,8 +220,8 @@ class RedBlackTree {
             boolean childColor = node.right.color;
             node = replace(node, node.left);
             node.parent = parent;
-            //System.out.println(node.color);
-            //System.out.println(node.data);
+            // System.out.println(node.color);
+            // System.out.println(node.data);
             if (originalColor == childColor) {
                 adjustAfterRemoval(node);
             }
@@ -228,38 +230,38 @@ class RedBlackTree {
             node.data = tempData;
             delete(root.right, tempData);
 
-            //node.parent = parent;
+            // node.parent = parent;
         }
 
     }
 
     public void adjustAfterRemoval(Node n) {
-        
+
         while (n != root && colorOf(n) == true) {
             if (n == n.parent.left) {
                 Node sibling = n.parent.right;
-                //sibling is red
+                // sibling is red
                 if (sibling.color == false) {
                     setColorOf(sibling, true);
                     setColorOf(n.parent, false);
                     rotateLeft(n.parent);
                     sibling = n.parent.right;
                 }
-                //both child of sibling are black color sibling red and recur for parent
+                // both child of sibling are black color sibling red and recur for parent
                 if (colorOf(sibling.left) == true && colorOf(sibling.right) == true) {
                     setColorOf(sibling, false);
                     n = n.parent;
                 } else {
-                    //one of the sibling's child is red 
-                    //the other one(right) probably sentinel node will be black
-                    //rotate in opposite direction
+                    // one of the sibling's child is red
+                    // the other one(right) probably sentinel node will be black
+                    // rotate in opposite direction
                     if (colorOf(sibling.right) == true) {
                         setColorOf(sibling.left, true);
                         setColorOf(sibling, false);
                         rotateRight(sibling);
                         sibling = n.parent.right;
                     }
-                    
+
                     setColorOf(sibling, n.parent.color);
                     setColorOf(n.parent, true);
                     setColorOf(sibling.right, true);
@@ -270,7 +272,7 @@ class RedBlackTree {
             } else {
                 Node sibling = n.parent.left;
                 if (sibling.color == false) {
-                    //Sibling is red
+                    // Sibling is red
                     setColorOf(sibling, true);
                     setColorOf(n.parent, false);
                     rotateRight(n.parent);
@@ -281,21 +283,21 @@ class RedBlackTree {
                     setColorOf(sibling, false);
                     n = n.parent;
                 } else {
-                    //one of the sibling's child is red 
-                    //the other one(left) probably sentinel node will be black
+                    // one of the sibling's child is red
+                    // the other one(left) probably sentinel node will be black
                     if (colorOf(sibling.left) == true) {
                         setColorOf(sibling.right, true);
                         setColorOf(sibling, false);
                         rotateLeft(sibling);
-                        //System.out.println("Node"+n.parent.left.data);
-                        //System.out.println("Node"+n.parent.left.color);
+                        // System.out.println("Node"+n.parent.left.data);
+                        // System.out.println("Node"+n.parent.left.color);
                         sibling = n.parent.left;
-                        
+
                     }
                     setColorOf(sibling, n.parent.color);
                     setColorOf(n.parent, true);
                     setColorOf(sibling.left, true);
-                    //System.out.println(n.data+" "+n.parent.data);
+                    // System.out.println(n.data+" "+n.parent.data);
                     rotateRight(n.parent);
                     n = (Node) root;
 
@@ -307,7 +309,7 @@ class RedBlackTree {
     }
 
     public Node nodeContaining(Node root, int data) {
-        //Node n=null;
+        // Node n=null;
 
         if (root.data == data)
             return root;
@@ -319,7 +321,7 @@ class RedBlackTree {
                 current = current.right;
 
         }
-        //System.out.println(current.data);
+        // System.out.println(current.data);
         return current;
     }
 
@@ -364,8 +366,8 @@ class RedBlackTreeMain {
         System.out.println("");
         r.insert(9);
         r.traverse(r.root);
-        //r.delete(r.root, 20);
-        //r.traverse(r.root);
+        // r.delete(r.root, 20);
+        // r.traverse(r.root);
         // System.out.println("");
         // System.out.println(r.root.data);
         // System.out.println(r.root.color);

@@ -1,4 +1,5 @@
 package standardalgos;
+
 /**
  * BTreeNode
  */
@@ -44,10 +45,10 @@ class BTreeNode {
     public void splitChild(int i, BTreeNode y) {
         BTreeNode z = new BTreeNode(y.t, y.leaf);
         z.n = t - 1;
-        //System.out.println("copied");
+        // System.out.println("copied");
         for (int j = 0; j < t - 1; j++) {
             z.keys[j] = y.keys[j + t];
-            //System.out.println(y.keys[j + t]);
+            // System.out.println(y.keys[j + t]);
         }
 
         if (y.leaf == false) {
@@ -97,8 +98,7 @@ class BTreeNode {
             }
 
             boolean flag = ((idx == this.n) ? true : false);
-            if (this.children[idx].n < t)
-            {
+            if (this.children[idx].n < t) {
                 this.fill(idx);
             }
             if (flag && idx > n)
@@ -118,28 +118,26 @@ class BTreeNode {
     }
 
     public void removeFromLeaf(int idx) {
-        //System.out.println("removeFromLeaf");
+        // System.out.println("removeFromLeaf");
         for (int i = idx + 1; i < n; i++)
             this.keys[i - 1] = this.keys[i];
 
-        this.n-=1;
+        this.n -= 1;
     }
 
     public void removeFromNonLeaf(int idx) {
-        //-System.out.println("removeFromNonLeaf");
+        // -System.out.println("removeFromNonLeaf");
         int k = keys[idx];
 
         if (this.children[idx].n >= t) {
             int pred = this.getPred(idx);
             this.keys[idx] = pred;
             this.children[idx].remove(pred);
-        } 
-        else if (this.children[idx + 1].n >= t) {
+        } else if (this.children[idx + 1].n >= t) {
             int succ = this.getSucc(idx);
             this.keys[idx] = succ;
             this.children[idx + 1].remove(succ);
-        } 
-        else {
+        } else {
             this.merge(idx);
             this.children[idx].remove(k);
         }
@@ -172,7 +170,7 @@ class BTreeNode {
     }
 
     public int getSucc(int idx) {
-        //System.out.println("getSucc");
+        // System.out.println("getSucc");
         BTreeNode curr = this.children[idx + 1];
         while (!curr.leaf)
             curr = curr.children[0];
@@ -189,8 +187,8 @@ class BTreeNode {
 
         for (int i = 0; i < sibling.n; i++) {
             child.keys[i + t] = sibling.keys[i];
-            //System.out.println(i);
-            //System.out.println(i + t);
+            // System.out.println(i);
+            // System.out.println(i + t);
         }
 
         if (!child.leaf) {
@@ -198,10 +196,10 @@ class BTreeNode {
                 child.children[i + t] = sibling.children[i];
         }
 
-        for (int i = idx+1; i < n; i++)
+        for (int i = idx + 1; i < n; i++)
             keys[i - 1] = keys[i];
 
-        for (int i = idx+2; i <= n; i++)
+        for (int i = idx + 2; i <= n; i++)
             this.children[i - 1] = this.children[i];
 
         child.n += (sibling.n) + 1;
@@ -280,13 +278,13 @@ class BTree {
 
     public void insert(int k) {
         if (root == null) {
-            //System.out.println("Root Initialize");
+            // System.out.println("Root Initialize");
             root = new BTreeNode(t, true);
             root.keys[0] = k;
             root.n = 1;
         } else {
             if (root.n == 2 * t - 1) {
-                //System.out.println("Child Insert");
+                // System.out.println("Child Insert");
                 BTreeNode s = new BTreeNode(t, false);
                 s.children[0] = root;
                 s.splitChild(0, root);
@@ -297,7 +295,7 @@ class BTree {
                 s.children[i].insertNotFull(k);
                 root = s;
             } else {
-                //System.out.println("Root Insert");
+                // System.out.println("Root Insert");
                 root.insertNotFull(k);
             }
         }
@@ -316,7 +314,6 @@ class BTree {
             else
                 root = root.children[0];
 
-            
         }
 
     }
@@ -333,7 +330,7 @@ public class BtreeMain {
         tree.insert(30);
         tree.insert(7);
         tree.insert(17);
-        //tree.traverse();
+        // tree.traverse();
         // System.out.println("delete 17");
         tree.remove(17);
         tree.remove(30);
@@ -341,14 +338,14 @@ public class BtreeMain {
         tree.remove(12);
         // tree.traverse();
         // System.out.println("delete 12");
-        
-        //tree.traverse();
-        //tree.traverse();
-       
+
+        // tree.traverse();
+        // tree.traverse();
+
         tree.traverse();
         // for (int k : tree.root.keys) {
-        //     if(k!=0)
-        //     System.out.println(k);
+        // if(k!=0)
+        // System.out.println(k);
         // }
         System.out.println(tree.root.leaf);
     }
