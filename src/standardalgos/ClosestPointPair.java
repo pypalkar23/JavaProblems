@@ -1,7 +1,6 @@
 package standardalgos;
+
 import java.util.*;
-import java.lang.*;
-import java.io.*;
 
 /* Name of the class has to be "Main" only if the class is public. */
 
@@ -25,7 +24,6 @@ class Point {
         this.x = x;
         this.y = y;
     }
-
 }
 
 class ClosestPair {
@@ -59,7 +57,7 @@ class ClosestPair {
     }
 
     public double closest(Point points[]) {
-        //first sort by x
+        // first sort by x
         Arrays.sort(points, (p1, p2) -> p1.x - p2.x);
         return closestUtil(points);
     }
