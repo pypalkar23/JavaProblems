@@ -1,5 +1,5 @@
 /*Your task is to calculate ab mod 1337 where a is a positive integer and b is an extremely large positive integer given in the form of an array*/
-class SuperPow {
+class SuperPow2 {
     public int superPow(int a, int[] b) {
         if (b == null || b.length == 0)
             return 1;
@@ -22,7 +22,7 @@ class SuperPow {
     }
 
     public static void main(String[] args) {
-        SuperPow s = new SuperPow();
+        SuperPow2 s = new SuperPow2();
         System.out.println(s.superPow(2, new int[] { 3 }));
         System.out.println(s.superPow(4, new int[] { 5, 0, 0 }));
     }
