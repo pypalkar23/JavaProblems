@@ -22,17 +22,17 @@ class DFS {
         graph[2].add(7);
         graph[3].add(7);
 
-        DFS(graph, 0);
+        dfs(graph, 0);
     }
 
-    public static void DFS(List<Integer> graph[], int node) {
+    public static void dfs(List<Integer> graph[], int node) {
         
         System.out.println(node);
         visited.add(node);
         List<Integer> current = graph[node];
         for (int i : current) {
             if (!visited.contains(i))
-                DFS(graph, i);
+                dfs(graph, i);
         }
     }
 }
